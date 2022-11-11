@@ -18,9 +18,7 @@ NEWLINE: [\n]+ ;
 INT    : [-]?[0-9]+ ; // satisfies all integers
 FLOAT  : [-]?[0-9]+ '.' [0-9]+;
 STRING : '"' ([a-z] | [A-Z] | [0-9] | '_')+ '"';
-<<<<<<< HEAD
 DOUBLE : [-]?[0-9]+ '.' [0-9]+;
-=======
 literal: INT
         | FLOAT
         | STRING;
@@ -40,4 +38,14 @@ ASSSIGNMENTOPERATOR: ' = '
     | ' -= '
     | ' *= '
     | ' /= ';
->>>>>>> 92fbc512c560023ca3b2641c3c37a5b8c9d992c7
+
+NUM: [-]?[0-9]+;
+
+SIGNS
+    : '+'
+    | '-'
+    | '/'
+    | '*'
+    | '%'
+    | '^'
+    ;
