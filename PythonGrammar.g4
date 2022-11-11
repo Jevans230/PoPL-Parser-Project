@@ -24,6 +24,7 @@ LITERAL: INT
         | FLOAT
         | STRING
         | DOUBLE
+        | BOOL
         | LIST;
 
 VARNAME: [a-z] VARNAME
