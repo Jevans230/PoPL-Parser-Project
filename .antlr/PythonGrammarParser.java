@@ -1,4 +1,4 @@
-// Generated from /Users/tristen/Desktop/Documents/CS4450/PoPL-Parser-Project/PythonGrammar.g4 by ANTLR 4.9.2
+// Generated from /Users/jevans230/Desktop/PoPL-Parser-Project/PythonGrammar.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -18,7 +18,8 @@ public class PythonGrammarParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, NEWLINE=14, INT=15, FLOAT=16, STRING=17, 
-		DOUBLE=18, VARNAME=19, ASSSIGNMENTOPERATOR=20, NUM=21, SIGNS=22;
+		DOUBLE=18, BOOL=19, VARNAME=20, ASSSIGNMENTOPERATOR=21, SIGNS=22, TRUE=23, 
+		FALSE=24;
 	public static final int
 		RULE_start = 0, RULE_expr = 1, RULE_printRule = 2, RULE_literal = 3, RULE_assignment = 4;
 	private static String[] makeRuleNames() {
@@ -31,15 +32,16 @@ public class PythonGrammarParser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 			null, "'*'", "'/'", "'+'", "'-'", "'%'", "'='", "'+='", "'-='", "'*='", 
-			"'/='", "'('", "')'", "'print('"
+			"'/='", "'('", "')'", "'print('", null, null, null, null, null, null, 
+			null, null, null, "'True'", "'False'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE", "VARNAME", 
-			"ASSSIGNMENTOPERATOR", "NUM", "SIGNS"
+			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE", "BOOL", "VARNAME", 
+			"ASSSIGNMENTOPERATOR", "SIGNS", "TRUE", "FALSE"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -482,7 +484,7 @@ public class PythonGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30>\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32>\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\7\2\20\n\2\f\2\16\2\23\13\2\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3\35\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\7\3+\n\3\f\3\16\3.\13\3\3\4\3\4\3\4\3\4\3\5\3\5\3\6"+
@@ -497,7 +499,7 @@ public class PythonGrammarParser extends Parser {
 		"(\f\7\2\2()\t\4\2\2)+\5\4\3\b*\36\3\2\2\2*!\3\2\2\2*$\3\2\2\2*\'\3\2\2"+
 		"\2+.\3\2\2\2,*\3\2\2\2,-\3\2\2\2-\5\3\2\2\2.,\3\2\2\2/\60\7\17\2\2\60"+
 		"\61\5\4\3\2\61\62\7\16\2\2\62\7\3\2\2\2\63\64\t\5\2\2\64\t\3\2\2\2\65"+
-		"\66\7\25\2\2\66\67\7\26\2\2\67<\7\25\2\289\7\25\2\29:\7\26\2\2:<\5\b\5"+
+		"\66\7\26\2\2\66\67\7\27\2\2\67<\7\26\2\289\7\26\2\29:\7\27\2\2:<\5\b\5"+
 		"\2;\65\3\2\2\2;8\3\2\2\2<\13\3\2\2\2\7\21\34*,;";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

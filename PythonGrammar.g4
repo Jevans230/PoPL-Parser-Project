@@ -19,6 +19,7 @@ INT    : [-]?[0-9]+ ; // satisfies all integers
 FLOAT  : [-]?[0-9]+ '.' [0-9]+;
 STRING : '"' ([a-z] | [A-Z] | [0-9] | '_')+ '"';
 DOUBLE : [-]?[0-9]+ '.' [0-9]+;
+BOOL   : TRUE | FALSE;
 literal: INT
         | FLOAT
         | STRING
@@ -40,8 +41,6 @@ ASSSIGNMENTOPERATOR: ' = '
     | ' *= '
     | ' /= ';
 
-NUM: [-]?[0-9]+;
-
 SIGNS
     : '+'
     | '-'
@@ -51,3 +50,5 @@ SIGNS
     | '^'
     ;
 
+TRUE: 'True';
+FALSE: 'False';
