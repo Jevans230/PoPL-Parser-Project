@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// Generated from /Users/tylerdunaway/Developer/CS4450/PoPL-Parser-Project/PythonGrammar.g4 by ANTLR 4.9.2
-=======
 // Generated from /Users/tristen/Desktop/Documents/CS4450/PoPL-Parser-Project/PythonGrammar.g4 by ANTLR 4.9.2
->>>>>>> 92fbc512c560023ca3b2641c3c37a5b8c9d992c7
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -22,11 +18,7 @@ public class PythonGrammarParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, NEWLINE=14, INT=15, FLOAT=16, STRING=17, 
-<<<<<<< HEAD
-		DOUBLE=18;
-=======
-		VARNAME=18, ASSSIGNMENTOPERATOR=19;
->>>>>>> 92fbc512c560023ca3b2641c3c37a5b8c9d992c7
+		DOUBLE=18, VARNAME=19, ASSSIGNMENTOPERATOR=20;
 	public static final int
 		RULE_start = 0, RULE_expr = 1, RULE_printRule = 2, RULE_literal = 3, RULE_assignment = 4;
 	private static String[] makeRuleNames() {
@@ -46,11 +38,8 @@ public class PythonGrammarParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-<<<<<<< HEAD
-			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE"
-=======
-			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "VARNAME", "ASSSIGNMENTOPERATOR"
->>>>>>> 92fbc512c560023ca3b2641c3c37a5b8c9d992c7
+			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE", "VARNAME", 
+			"ASSSIGNMENTOPERATOR"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -501,23 +490,7 @@ public class PythonGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-<<<<<<< HEAD
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24\61\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\3\2\3\2\3\2\7\2\f\n\2\f\2\16\2\17\13\2\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\3\3\3\3\3\5\3\32\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\7\3(\n\3\f\3\16\3+\13\3\3\4\3\4\3\4\3\4\3\4\2\3\4\5\2\4\6\2\5"+
-		"\3\2\3\4\3\2\5\6\3\2\b\f\2\66\2\r\3\2\2\2\4\31\3\2\2\2\6,\3\2\2\2\b\t"+
-		"\5\4\3\2\t\n\7\20\2\2\n\f\3\2\2\2\13\b\3\2\2\2\f\17\3\2\2\2\r\13\3\2\2"+
-		"\2\r\16\3\2\2\2\16\3\3\2\2\2\17\r\3\2\2\2\20\21\b\3\1\2\21\32\7\21\2\2"+
-		"\22\32\7\22\2\2\23\32\7\23\2\2\24\25\7\r\2\2\25\26\5\4\3\2\26\27\7\16"+
-		"\2\2\27\32\3\2\2\2\30\32\5\6\4\2\31\20\3\2\2\2\31\22\3\2\2\2\31\23\3\2"+
-		"\2\2\31\24\3\2\2\2\31\30\3\2\2\2\32)\3\2\2\2\33\34\f\13\2\2\34\35\t\2"+
-		"\2\2\35(\5\4\3\f\36\37\f\n\2\2\37 \t\3\2\2 (\5\4\3\13!\"\f\t\2\2\"#\7"+
-		"\7\2\2#(\5\4\3\n$%\f\b\2\2%&\t\4\2\2&(\5\4\3\t\'\33\3\2\2\2\'\36\3\2\2"+
-		"\2\'!\3\2\2\2\'$\3\2\2\2(+\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*\5\3\2\2\2+)\3"+
-		"\2\2\2,-\7\17\2\2-.\5\4\3\2./\7\16\2\2/\7\3\2\2\2\6\r\31\')";
-=======
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\25@\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26@\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\7\2\20\n\2\f\2\16\2\23\13\2\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3\37\n\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3-\n\3\f\3\16\3\60\13\3\3\4\3\4\3\4\3\4\3"+
@@ -533,9 +506,8 @@ public class PythonGrammarParser extends Parser {
 		"\2\2*+\t\4\2\2+-\5\4\3\n, \3\2\2\2,#\3\2\2\2,&\3\2\2\2,)\3\2\2\2-\60\3"+
 		"\2\2\2.,\3\2\2\2./\3\2\2\2/\5\3\2\2\2\60.\3\2\2\2\61\62\7\17\2\2\62\63"+
 		"\5\4\3\2\63\64\7\16\2\2\64\7\3\2\2\2\65\66\t\5\2\2\66\t\3\2\2\2\678\7"+
-		"\24\2\289\7\25\2\29>\7\24\2\2:;\7\24\2\2;<\7\25\2\2<>\5\b\5\2=\67\3\2"+
+		"\25\2\289\7\26\2\29>\7\25\2\2:;\7\25\2\2;<\7\26\2\2<>\5\b\5\2=\67\3\2"+
 		"\2\2=:\3\2\2\2>\13\3\2\2\2\7\21\36,.=";
->>>>>>> 92fbc512c560023ca3b2641c3c37a5b8c9d992c7
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
