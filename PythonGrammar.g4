@@ -6,7 +6,7 @@ expr: expr ('*' | '/') expr
     | expr ('+' | '-') expr
     | expr ('%') expr
     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
-    | literal
+    | LITERAL
     | '(' expr ')'
     | printRule
     | assignment;
@@ -19,10 +19,11 @@ INT    : [-]?[0-9]+ ; // satisfies all integers
 FLOAT  : [-]?[0-9]+ '.' [0-9]+;
 STRING : '"' ([a-z] | [A-Z] | [0-9] | '_')+ '"';
 DOUBLE : [-]?[0-9]+ '.' [0-9]+;
-literal: INT
+LITERAL: INT
         | FLOAT
         | STRING
-        | DOUBLE;
+        | DOUBLE
+        | LIST;
 
 VARNAME: [a-z] VARNAME
         | [A-Z] VARNAME
@@ -32,7 +33,7 @@ VARNAME: [a-z] VARNAME
         | [0-9];
 
 assignment: VARNAME ASSSIGNMENTOPERATOR VARNAME
-        | VARNAME ASSSIGNMENTOPERATOR literal;
+        | VARNAME ASSSIGNMENTOPERATOR LITERAL;
         
 ASSSIGNMENTOPERATOR: ' = '
     | ' += '
@@ -51,3 +52,5 @@ SIGNS
     | '^'
     ;
 
+LIST   : '[' (LISTITEM ',')* (LISTITEM)? ']';
+LISTITEM : LITERAL;

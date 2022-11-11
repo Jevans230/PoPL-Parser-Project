@@ -35,15 +35,6 @@ class PythonGrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PythonGrammarParser#literal.
-    def enterLiteral(self, ctx:PythonGrammarParser.LiteralContext):
-        pass
-
-    # Exit a parse tree produced by PythonGrammarParser#literal.
-    def exitLiteral(self, ctx:PythonGrammarParser.LiteralContext):
-        pass
-
-
     # Enter a parse tree produced by PythonGrammarParser#assignment.
     def enterAssignment(self, ctx:PythonGrammarParser.AssignmentContext):
         pass
