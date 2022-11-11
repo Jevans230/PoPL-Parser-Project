@@ -6,7 +6,7 @@ expr: expr ('*' | '/') expr
     | expr ('+' | '-') expr
     | expr ('%') expr
     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
-    | INT | FLOAT | STRING
+    | literal
     | '(' expr ')'
     | printRule
     | assignment;
