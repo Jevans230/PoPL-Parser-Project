@@ -21,7 +21,8 @@ STRING : '"' ([a-z] | [A-Z] | [0-9] | '_')+ '"';
 DOUBLE : [-]?[0-9]+ '.' [0-9]+;
 literal: INT
         | FLOAT
-        | STRING;
+        | STRING
+        | DOUBLE;
 
 VARNAME: [a-z] VARNAME
         | [A-Z] VARNAME
@@ -38,6 +39,7 @@ ASSSIGNMENTOPERATOR: ' = '
     | ' -= '
     | ' *= '
     | ' /= ';
+<<<<<<< HEAD
 
 NUM: [-]?[0-9]+;
 
@@ -49,3 +51,5 @@ SIGNS
     | '%'
     | '^'
     ;
+=======
+>>>>>>> aecf4429c3cef9a00d987157c39e639370f9ce7b

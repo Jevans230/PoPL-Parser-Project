@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // Generated from /Users/tylerdunaway/Developer/CS4450/PoPL-Parser-Project/PythonGrammar.g4 by ANTLR 4.9.2
+=======
+// Generated from /Users/tristen/Desktop/Documents/CS4450/PoPL-Parser-Project/PythonGrammar.g4 by ANTLR 4.9.2
+>>>>>>> aecf4429c3cef9a00d987157c39e639370f9ce7b
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -18,7 +22,11 @@ public class PythonGrammarParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, NEWLINE=14, INT=15, FLOAT=16, STRING=17, 
+<<<<<<< HEAD
 		DOUBLE=18, VARNAME=19, ASSSIGNMENTOPERATOR=20, NUM=21, SIGNS=22;
+=======
+		DOUBLE=18, VARNAME=19, ASSSIGNMENTOPERATOR=20;
+>>>>>>> aecf4429c3cef9a00d987157c39e639370f9ce7b
 	public static final int
 		RULE_start = 0, RULE_expr = 1, RULE_printRule = 2, RULE_literal = 3, RULE_assignment = 4;
 	private static String[] makeRuleNames() {
@@ -39,7 +47,11 @@ public class PythonGrammarParser extends Parser {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE", "VARNAME", 
+<<<<<<< HEAD
 			"ASSSIGNMENTOPERATOR", "NUM", "SIGNS"
+=======
+			"ASSSIGNMENTOPERATOR"
+>>>>>>> aecf4429c3cef9a00d987157c39e639370f9ce7b
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -490,7 +502,11 @@ public class PythonGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
+<<<<<<< HEAD
 		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30@\4\2\t\2\4\3\t"+
+=======
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26@\4\2\t\2\4\3\t"+
+>>>>>>> aecf4429c3cef9a00d987157c39e639370f9ce7b
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\7\2\20\n\2\f\2\16\2\23\13\2\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3\37\n\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3-\n\3\f\3\16\3\60\13\3\3\4\3\4\3\4\3\4\3"+
