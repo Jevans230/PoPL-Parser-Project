@@ -56,3 +56,14 @@ LISTITEM : LITERAL;
 
 TRUE: 'True';
 FALSE: 'False'; //example commit
+
+CONSTATEMENTS
+    : '>='
+    | '<='
+    | '>'
+    | '<'
+    | '=='
+    | '!='
+    | '&&'
+    | '||'
+    ;
