@@ -5,7 +5,6 @@ start: (expr NEWLINE)* ;
 expr: expr ('*' | '/') expr 
     | expr ('+' | '-') expr
     | expr ('%') expr
-    | ('!') expr
     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
     | IF
     | LITERAL
@@ -83,6 +82,7 @@ CONOPERATORS
     | '!='
     | 'and'
     | 'or'
+    | '!'
     ;
 
 
@@ -93,6 +93,5 @@ CONSTATEMENTS
 
 IF 
     : IFELSE WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* 
-    | IFELSE WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS*
-
+    | IFELSE WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* 
     ;
