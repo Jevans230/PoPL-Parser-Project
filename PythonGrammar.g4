@@ -5,6 +5,7 @@ start: (expr NEWLINE)* ;
 expr: expr ('*' | '/') expr 
     | expr ('+' | '-') expr
     | expr ('%') expr
+    | ('!') expr
     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
     | IF
     | LITERAL
