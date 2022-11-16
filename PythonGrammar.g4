@@ -8,6 +8,7 @@ expr: expr ('*' | '/') expr
     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
     | ifstatement
     | LITERAL
+    | SIGNS
     | '(' expr ')'
     | printRule
     | assignment
@@ -53,6 +54,7 @@ SIGNS
     | '*'
     | '%'
     | '^'
+    | '!'
     ;
 
 IFELSE
@@ -82,7 +84,6 @@ CONOPERATORS
     | '!='
     | 'and'
     | 'or'
-    | '!'
     ;
 
 
