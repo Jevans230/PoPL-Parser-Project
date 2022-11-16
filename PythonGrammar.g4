@@ -52,6 +52,13 @@ SIGNS
     | '%'
     | '^'
     ;
+
+IFELSE
+    : 'if'
+    | 'elif'
+    | 'else'
+    ;
+    
 LIST : '[' (LISTITEM ',')* (LISTITEM)? ']';
 LISTITEM : LITERAL;
 
