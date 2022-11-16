@@ -93,8 +93,8 @@ CONSTATEMENTS
         | VARNAME WS* CONOPERATORS WS* LITERAL;
 
 ifstatement
-    : 'if' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* then elifstatement+ elsestatement
-    | 'if' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* then elifstatement+ elsestatement;
+    : 'if' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* then elifstatement* elsestatement
+    | 'if' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* then elifstatement* elsestatement;
 
 
 elifstatement: 'elif' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* then
