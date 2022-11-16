@@ -6,10 +6,12 @@ expr: expr ('*' | '/') expr
     | expr ('+' | '-') expr
     | expr ('%') expr
     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
+    | IF
     | LITERAL
     | '(' expr ')'
     | printRule
-    | assignment;
+    | assignment
+    ;
 
 printRule: 'print(' expr ')';
 
@@ -91,4 +93,5 @@ CONSTATEMENTS
 IF 
     : IFELSE WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* 
     | IFELSE WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS*
+
     ;
