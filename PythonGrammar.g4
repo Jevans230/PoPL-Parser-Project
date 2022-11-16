@@ -34,7 +34,8 @@ VARNAME: [a-z] VARNAME
         | [A-Z]
         | [0-9];
 
-assignment: VARNAME ASSSIGNMENTOPERATOR VARNAME
+assignment: VARNAME ASSSIGNMENTOPERATOR VARNAME assignment
+        | VARNAME ASSSIGNMENTOPERATOR VARNAME 
         | VARNAME ASSSIGNMENTOPERATOR LITERAL;
         
 ASSSIGNMENTOPERATOR: ' = '
@@ -51,6 +52,13 @@ SIGNS
     | '%'
     | '^'
     ;
+
+IFELSE
+    : 'if'
+    | 'elif'
+    | 'else'
+    ;
+    
 LIST : '[' (LISTITEM ',')* (LISTITEM)? ']';
 LISTITEM : LITERAL;
 
