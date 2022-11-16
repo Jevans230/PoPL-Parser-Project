@@ -9,8 +9,7 @@ expr: expr ('*' | '/') expr
     | LITERAL
     | '(' expr ')'
     | printRule
-    | assignment
-    | CONSTATEMENTS;
+    | assignment;
 
 printRule: 'print(' expr ')';
 
