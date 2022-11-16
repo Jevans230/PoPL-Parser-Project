@@ -19,7 +19,7 @@ public class PythonGrammarLexer extends Lexer {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, NEWLINE=14, INT=15, FLOAT=16, STRING=17, 
 		DOUBLE=18, BOOL=19, LITERAL=20, VARNAME=21, ASSSIGNMENTOPERATOR=22, SIGNS=23, 
-		IFELSE=24, LIST=25, LISTITEM=26, TRUE=27, FALSE=28, WHITESPACE=29, CONSTATEMENTS=30;
+		IFELSE=24, LIST=25, LISTITEM=26, TRUE=27, FALSE=28, WHITESPACE=29, CONOPERATORS=30;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -33,7 +33,7 @@ public class PythonGrammarLexer extends Lexer {
 			"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8", 
 			"T__9", "T__10", "T__11", "T__12", "NEWLINE", "INT", "FLOAT", "STRING", 
 			"DOUBLE", "BOOL", "LITERAL", "VARNAME", "ASSSIGNMENTOPERATOR", "SIGNS", 
-			"IFELSE", "LIST", "LISTITEM", "TRUE", "FALSE", "WHITESPACE", "CONSTATEMENTS"
+			"IFELSE", "LIST", "LISTITEM", "TRUE", "FALSE", "WHITESPACE", "CONOPERATORS"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -51,7 +51,7 @@ public class PythonGrammarLexer extends Lexer {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE", "BOOL", "LITERAL", 
 			"VARNAME", "ASSSIGNMENTOPERATOR", "SIGNS", "IFELSE", "LIST", "LISTITEM", 
-			"TRUE", "FALSE", "WHITESPACE", "CONSTATEMENTS"
+			"TRUE", "FALSE", "WHITESPACE", "CONOPERATORS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();

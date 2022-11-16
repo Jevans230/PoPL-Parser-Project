@@ -69,8 +69,7 @@ FALSE: 'False'; //example commit
 WHITESPACE: ' '
             | ' ' WHITESPACE;
 
-//IFSTATEMENT: "if" CONSTATEMENTS ":" 
-CONSTATEMENTS
+CONOPERATORS
     : '>='
     | '<='
     | '>'

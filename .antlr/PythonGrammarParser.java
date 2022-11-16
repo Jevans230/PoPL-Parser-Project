@@ -19,7 +19,8 @@ public class PythonGrammarParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, NEWLINE=14, INT=15, FLOAT=16, STRING=17, 
 		DOUBLE=18, BOOL=19, LITERAL=20, VARNAME=21, ASSSIGNMENTOPERATOR=22, SIGNS=23, 
-		IFELSE=24, LIST=25, LISTITEM=26, TRUE=27, FALSE=28, WHITESPACE=29, CONSTATEMENTS=30;
+		IFELSE=24, LIST=25, LISTITEM=26, TRUE=27, FALSE=28, WHITESPACE=29, CONOPERATORS=30, 
+		CONSTATEMENTS=31;
 	public static final int
 		RULE_start = 0, RULE_expr = 1, RULE_printRule = 2, RULE_assignment = 3;
 	private static String[] makeRuleNames() {
@@ -42,7 +43,7 @@ public class PythonGrammarParser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE", "BOOL", "LITERAL", 
 			"VARNAME", "ASSSIGNMENTOPERATOR", "SIGNS", "IFELSE", "LIST", "LISTITEM", 
-			"TRUE", "FALSE", "WHITESPACE", "CONSTATEMENTS"
+			"TRUE", "FALSE", "WHITESPACE", "CONOPERATORS", "CONSTATEMENTS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -549,7 +550,7 @@ public class PythonGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 c\4\2\t\2\4\3\t\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!c\4\2\t\2\4\3\t\3"+
 		"\4\4\t\4\4\5\t\5\3\2\3\2\3\2\7\2\16\n\2\f\2\16\2\21\13\2\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\5\3\34\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\7\3*\n\3\f\3\16\3-\13\3\3\4\3\4\3\4\3\4\3\5\3\5\7\5\65\n"+
@@ -560,7 +561,7 @@ public class PythonGrammarParser extends Parser {
 		"\2\6.\3\2\2\2\b`\3\2\2\2\n\13\5\4\3\2\13\f\7\20\2\2\f\16\3\2\2\2\r\n\3"+
 		"\2\2\2\16\21\3\2\2\2\17\r\3\2\2\2\17\20\3\2\2\2\20\3\3\2\2\2\21\17\3\2"+
 		"\2\2\22\23\b\3\1\2\23\34\7\26\2\2\24\25\7\r\2\2\25\26\5\4\3\2\26\27\7"+
-		"\16\2\2\27\34\3\2\2\2\30\34\5\6\4\2\31\34\5\b\5\2\32\34\7 \2\2\33\22\3"+
+		"\16\2\2\27\34\3\2\2\2\30\34\5\6\4\2\31\34\5\b\5\2\32\34\7!\2\2\33\22\3"+
 		"\2\2\2\33\24\3\2\2\2\33\30\3\2\2\2\33\31\3\2\2\2\33\32\3\2\2\2\34+\3\2"+
 		"\2\2\35\36\f\13\2\2\36\37\t\2\2\2\37*\5\4\3\f !\f\n\2\2!\"\t\3\2\2\"*"+
 		"\5\4\3\13#$\f\t\2\2$%\7\7\2\2%*\5\4\3\n&\'\f\b\2\2\'(\t\4\2\2(*\5\4\3"+
