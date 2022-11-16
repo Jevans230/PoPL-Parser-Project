@@ -44,5 +44,41 @@ class PythonGrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PythonGrammarParser#ifstatement.
+    def enterIfstatement(self, ctx:PythonGrammarParser.IfstatementContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#ifstatement.
+    def exitIfstatement(self, ctx:PythonGrammarParser.IfstatementContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#elifstatement.
+    def enterElifstatement(self, ctx:PythonGrammarParser.ElifstatementContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#elifstatement.
+    def exitElifstatement(self, ctx:PythonGrammarParser.ElifstatementContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#elsestatement.
+    def enterElsestatement(self, ctx:PythonGrammarParser.ElsestatementContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#elsestatement.
+    def exitElsestatement(self, ctx:PythonGrammarParser.ElsestatementContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#then.
+    def enterThen(self, ctx:PythonGrammarParser.ThenContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#then.
+    def exitThen(self, ctx:PythonGrammarParser.ThenContext):
+        pass
+
+
 
 del PythonGrammarParser

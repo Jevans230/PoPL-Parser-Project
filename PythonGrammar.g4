@@ -7,7 +7,7 @@ expr: expr ('*' | '/') expr
     | expr ('%') expr
     | ('!') expr
     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
-    | IF
+    | ifstatement
     | LITERAL
     | '(' expr ')'
     | printRule
@@ -91,8 +91,15 @@ CONSTATEMENTS
         | LITERAL WS* CONOPERATORS WS* LITERAL
         | VARNAME WS* CONOPERATORS WS* LITERAL;
 
-IF 
-    : IFELSE WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* 
-    | IFELSE WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS*
+ifstatement
+    : 'if' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* then elifstatement+ elsestatement
+    | 'if' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* then elifstatement+ elsestatement
 
     ;
+
+elifstatement: 'elif' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* then
+    | 'elif' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* then;
+
+elsestatement: 'else:' WS* then;
+
+then: (NEWLINE+ TAB expr)*;
