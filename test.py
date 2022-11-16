@@ -1,1 +1,2 @@
-goat = "string"
+if(4>6):
+

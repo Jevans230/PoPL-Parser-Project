@@ -6,10 +6,12 @@ expr: expr ('*' | '/') expr
     | expr ('+' | '-') expr
     | expr ('%') expr
     | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
+    | IF
     | LITERAL
     | '(' expr ')'
     | printRule
-    | assignment;
+    | assignment
+    ;
 
 printRule: 'print(' expr ')';
 
@@ -89,6 +91,7 @@ CONSTATEMENTS
         | VARNAME WHITESPACE* CONOPERATORS WHITESPACE* LITERAL;
 
 IF 
-    : IFELSE '(' (CONSTATEMENTS ('and' | 'or')?)+ ')' ':' 
-    | IFELSE     (CONSTATEMENTS ('and' | 'or')?)+ ':' 
+    : IFELSE '(' CONSTATEMENTS (('and' | 'or')CONSTATEMENTS)* '):' 
+    | IFELSE     CONSTATEMENTS (('and' | 'or')CONSTATEMENTS)*  ':' 
+
     ;
