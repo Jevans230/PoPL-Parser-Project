@@ -19,7 +19,8 @@ public class PythonGrammarParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, NEWLINE=14, INT=15, FLOAT=16, STRING=17, 
 		DOUBLE=18, BOOL=19, LITERAL=20, VARNAME=21, ASSSIGNMENTOPERATOR=22, SIGNS=23, 
-		IFELSE=24, LIST=25, LISTITEM=26, TRUE=27, FALSE=28, WHITESPACE=29, CONOPERATORS=30;
+		IFELSE=24, LIST=25, LISTITEM=26, TRUE=27, FALSE=28, WHITESPACE=29, CONOPERATORS=30, 
+		CONSTATEMENTS=31;
 	public static final int
 		RULE_start = 0, RULE_expr = 1, RULE_printRule = 2, RULE_assignment = 3;
 	private static String[] makeRuleNames() {
@@ -42,7 +43,7 @@ public class PythonGrammarParser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE", "BOOL", "LITERAL", 
 			"VARNAME", "ASSSIGNMENTOPERATOR", "SIGNS", "IFELSE", "LIST", "LISTITEM", 
-			"TRUE", "FALSE", "WHITESPACE", "CONOPERATORS"
+			"TRUE", "FALSE", "WHITESPACE", "CONOPERATORS", "CONSTATEMENTS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -542,7 +543,7 @@ public class PythonGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 b\4\2\t\2\4\3\t\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!b\4\2\t\2\4\3\t\3"+
 		"\4\4\t\4\4\5\t\5\3\2\3\2\3\2\7\2\16\n\2\f\2\16\2\21\13\2\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\5\3\33\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\7\3)\n\3\f\3\16\3,\13\3\3\4\3\4\3\4\3\4\3\5\3\5\7\5\64\n\5\f"+
