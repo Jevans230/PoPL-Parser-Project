@@ -34,15 +34,15 @@ VARNAME: [a-z] VARNAME
         | [A-Z]
         | [0-9];
 
-assignment: VARNAME ASSSIGNMENTOPERATOR VARNAME assignment
-        | VARNAME ASSSIGNMENTOPERATOR VARNAME 
-        | VARNAME ASSSIGNMENTOPERATOR LITERAL;
+assignment: VARNAME WHITESPACE* ASSSIGNMENTOPERATOR WHITESPACE* VARNAME assignment
+        | VARNAME WHITESPACE* ASSSIGNMENTOPERATOR WHITESPACE* VARNAME 
+        | VARNAME WHITESPACE* ASSSIGNMENTOPERATOR WHITESPACE* LITERAL;
         
-ASSSIGNMENTOPERATOR: ' = '
-    | ' += '
-    | ' -= '
-    | ' *= '
-    | ' /= ';
+ASSSIGNMENTOPERATOR: '='
+    | '+='
+    | '-='
+    | '*='
+    | '/=';
 
 SIGNS
     : '+'
@@ -57,3 +57,8 @@ LISTITEM : LITERAL;
 
 TRUE: 'True';
 FALSE: 'False'; //example commit
+
+WHITESPACE: ' '
+            | ' ' WHITESPACE;
+
+//IFSTATEMENT: "if" CONSTATEMENTS ":" 

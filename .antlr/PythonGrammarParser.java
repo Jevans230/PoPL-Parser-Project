@@ -1,4 +1,4 @@
-// Generated from /Users/jevans230/Desktop/PoPL-Parser-Project/PythonGrammar.g4 by ANTLR 4.9.2
+// Generated from /Users/tristen/Desktop/Documents/CS4450/PoPL-Parser-Project/PythonGrammar.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -19,7 +19,7 @@ public class PythonGrammarParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, NEWLINE=14, INT=15, FLOAT=16, STRING=17, 
 		DOUBLE=18, BOOL=19, LITERAL=20, VARNAME=21, ASSSIGNMENTOPERATOR=22, SIGNS=23, 
-		LIST=24, LISTITEM=25, TRUE=26, FALSE=27;
+		LIST=24, LISTITEM=25, TRUE=26, FALSE=27, WHITESPACE=28;
 	public static final int
 		RULE_start = 0, RULE_expr = 1, RULE_printRule = 2, RULE_assignment = 3;
 	private static String[] makeRuleNames() {
@@ -42,7 +42,7 @@ public class PythonGrammarParser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, "NEWLINE", "INT", "FLOAT", "STRING", "DOUBLE", "BOOL", "LITERAL", 
 			"VARNAME", "ASSSIGNMENTOPERATOR", "SIGNS", "LIST", "LISTITEM", "TRUE", 
-			"FALSE"
+			"FALSE", "WHITESPACE"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -366,6 +366,13 @@ public class PythonGrammarParser extends Parser {
 			return getToken(PythonGrammarParser.VARNAME, i);
 		}
 		public TerminalNode ASSSIGNMENTOPERATOR() { return getToken(PythonGrammarParser.ASSSIGNMENTOPERATOR, 0); }
+		public AssignmentContext assignment() {
+			return getRuleContext(AssignmentContext.class,0);
+		}
+		public List<TerminalNode> WHITESPACE() { return getTokens(PythonGrammarParser.WHITESPACE); }
+		public TerminalNode WHITESPACE(int i) {
+			return getToken(PythonGrammarParser.WHITESPACE, i);
+		}
 		public TerminalNode LITERAL() { return getToken(PythonGrammarParser.LITERAL, 0); }
 		public AssignmentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -376,29 +383,127 @@ public class PythonGrammarParser extends Parser {
 	public final AssignmentContext assignment() throws RecognitionException {
 		AssignmentContext _localctx = new AssignmentContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_assignment);
+		int _la;
 		try {
-			setState(53);
+			setState(93);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(47);
 				match(VARNAME);
-				setState(48);
+				setState(51);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==WHITESPACE) {
+					{
+					{
+					setState(48);
+					match(WHITESPACE);
+					}
+					}
+					setState(53);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(54);
 				match(ASSSIGNMENTOPERATOR);
-				setState(49);
+				setState(58);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==WHITESPACE) {
+					{
+					{
+					setState(55);
+					match(WHITESPACE);
+					}
+					}
+					setState(60);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(61);
 				match(VARNAME);
+				setState(62);
+				assignment();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(50);
+				setState(63);
 				match(VARNAME);
-				setState(51);
+				setState(67);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==WHITESPACE) {
+					{
+					{
+					setState(64);
+					match(WHITESPACE);
+					}
+					}
+					setState(69);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(70);
 				match(ASSSIGNMENTOPERATOR);
-				setState(52);
+				setState(74);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==WHITESPACE) {
+					{
+					{
+					setState(71);
+					match(WHITESPACE);
+					}
+					}
+					setState(76);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(77);
+				match(VARNAME);
+				}
+				break;
+			case 3:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(78);
+				match(VARNAME);
+				setState(82);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==WHITESPACE) {
+					{
+					{
+					setState(79);
+					match(WHITESPACE);
+					}
+					}
+					setState(84);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(85);
+				match(ASSSIGNMENTOPERATOR);
+				setState(89);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==WHITESPACE) {
+					{
+					{
+					setState(86);
+					match(WHITESPACE);
+					}
+					}
+					setState(91);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(92);
 				match(LITERAL);
 				}
 				break;
@@ -437,22 +542,32 @@ public class PythonGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\35:\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\36b\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\3\2\3\2\3\2\7\2\16\n\2\f\2\16\2\21\13\2\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\5\3\33\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\3\7\3)\n\3\f\3\16\3,\13\3\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5"+
-		"\3\5\5\58\n\5\3\5\2\3\4\6\2\4\6\b\2\5\3\2\3\4\3\2\5\6\3\2\b\f\2>\2\17"+
-		"\3\2\2\2\4\32\3\2\2\2\6-\3\2\2\2\b\67\3\2\2\2\n\13\5\4\3\2\13\f\7\20\2"+
-		"\2\f\16\3\2\2\2\r\n\3\2\2\2\16\21\3\2\2\2\17\r\3\2\2\2\17\20\3\2\2\2\20"+
-		"\3\3\2\2\2\21\17\3\2\2\2\22\23\b\3\1\2\23\33\7\26\2\2\24\25\7\r\2\2\25"+
-		"\26\5\4\3\2\26\27\7\16\2\2\27\33\3\2\2\2\30\33\5\6\4\2\31\33\5\b\5\2\32"+
-		"\22\3\2\2\2\32\24\3\2\2\2\32\30\3\2\2\2\32\31\3\2\2\2\33*\3\2\2\2\34\35"+
-		"\f\n\2\2\35\36\t\2\2\2\36)\5\4\3\13\37 \f\t\2\2 !\t\3\2\2!)\5\4\3\n\""+
-		"#\f\b\2\2#$\7\7\2\2$)\5\4\3\t%&\f\7\2\2&\'\t\4\2\2\')\5\4\3\b(\34\3\2"+
-		"\2\2(\37\3\2\2\2(\"\3\2\2\2(%\3\2\2\2),\3\2\2\2*(\3\2\2\2*+\3\2\2\2+\5"+
-		"\3\2\2\2,*\3\2\2\2-.\7\17\2\2./\5\4\3\2/\60\7\16\2\2\60\7\3\2\2\2\61\62"+
-		"\7\27\2\2\62\63\7\30\2\2\638\7\27\2\2\64\65\7\27\2\2\65\66\7\30\2\2\66"+
-		"8\7\26\2\2\67\61\3\2\2\2\67\64\3\2\2\28\t\3\2\2\2\7\17\32(*\67";
+		"\3\3\3\3\3\7\3)\n\3\f\3\16\3,\13\3\3\4\3\4\3\4\3\4\3\5\3\5\7\5\64\n\5"+
+		"\f\5\16\5\67\13\5\3\5\3\5\7\5;\n\5\f\5\16\5>\13\5\3\5\3\5\3\5\3\5\7\5"+
+		"D\n\5\f\5\16\5G\13\5\3\5\3\5\7\5K\n\5\f\5\16\5N\13\5\3\5\3\5\3\5\7\5S"+
+		"\n\5\f\5\16\5V\13\5\3\5\3\5\7\5Z\n\5\f\5\16\5]\13\5\3\5\5\5`\n\5\3\5\2"+
+		"\3\4\6\2\4\6\b\2\5\3\2\3\4\3\2\5\6\3\2\b\f\2m\2\17\3\2\2\2\4\32\3\2\2"+
+		"\2\6-\3\2\2\2\b_\3\2\2\2\n\13\5\4\3\2\13\f\7\20\2\2\f\16\3\2\2\2\r\n\3"+
+		"\2\2\2\16\21\3\2\2\2\17\r\3\2\2\2\17\20\3\2\2\2\20\3\3\2\2\2\21\17\3\2"+
+		"\2\2\22\23\b\3\1\2\23\33\7\26\2\2\24\25\7\r\2\2\25\26\5\4\3\2\26\27\7"+
+		"\16\2\2\27\33\3\2\2\2\30\33\5\6\4\2\31\33\5\b\5\2\32\22\3\2\2\2\32\24"+
+		"\3\2\2\2\32\30\3\2\2\2\32\31\3\2\2\2\33*\3\2\2\2\34\35\f\n\2\2\35\36\t"+
+		"\2\2\2\36)\5\4\3\13\37 \f\t\2\2 !\t\3\2\2!)\5\4\3\n\"#\f\b\2\2#$\7\7\2"+
+		"\2$)\5\4\3\t%&\f\7\2\2&\'\t\4\2\2\')\5\4\3\b(\34\3\2\2\2(\37\3\2\2\2("+
+		"\"\3\2\2\2(%\3\2\2\2),\3\2\2\2*(\3\2\2\2*+\3\2\2\2+\5\3\2\2\2,*\3\2\2"+
+		"\2-.\7\17\2\2./\5\4\3\2/\60\7\16\2\2\60\7\3\2\2\2\61\65\7\27\2\2\62\64"+
+		"\7\36\2\2\63\62\3\2\2\2\64\67\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\668"+
+		"\3\2\2\2\67\65\3\2\2\28<\7\30\2\29;\7\36\2\2:9\3\2\2\2;>\3\2\2\2<:\3\2"+
+		"\2\2<=\3\2\2\2=?\3\2\2\2><\3\2\2\2?@\7\27\2\2@`\5\b\5\2AE\7\27\2\2BD\7"+
+		"\36\2\2CB\3\2\2\2DG\3\2\2\2EC\3\2\2\2EF\3\2\2\2FH\3\2\2\2GE\3\2\2\2HL"+
+		"\7\30\2\2IK\7\36\2\2JI\3\2\2\2KN\3\2\2\2LJ\3\2\2\2LM\3\2\2\2MO\3\2\2\2"+
+		"NL\3\2\2\2O`\7\27\2\2PT\7\27\2\2QS\7\36\2\2RQ\3\2\2\2SV\3\2\2\2TR\3\2"+
+		"\2\2TU\3\2\2\2UW\3\2\2\2VT\3\2\2\2W[\7\30\2\2XZ\7\36\2\2YX\3\2\2\2Z]\3"+
+		"\2\2\2[Y\3\2\2\2[\\\3\2\2\2\\^\3\2\2\2][\3\2\2\2^`\7\26\2\2_\61\3\2\2"+
+		"\2_A\3\2\2\2_P\3\2\2\2`\t\3\2\2\2\r\17\32(*\65<ELT[_";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
