@@ -52,6 +52,13 @@ SIGNS
     | '%'
     | '^'
     ;
+
+IFELSE
+    : 'if'
+    | 'elif'
+    | 'else'
+    ;
+    
 LIST : '[' (LISTITEM ',')* (LISTITEM)? ']';
 LISTITEM : LITERAL;
 
@@ -62,3 +69,13 @@ WHITESPACE: ' '
             | ' ' WHITESPACE;
 
 //IFSTATEMENT: "if" CONSTATEMENTS ":" 
+CONSTATEMENTS
+    : '>='
+    | '<='
+    | '>'
+    | '<'
+    | '=='
+    | '!='
+    | '&&'
+    | '||'
+    ;
