@@ -6,7 +6,7 @@ expr:
     ifstatement
     | '(' expr ')'
     | printRule
-    | assignment
+    | ASSIGNMENT
     ;
 
 printRule: 'print(' expr ')';
@@ -32,7 +32,7 @@ VARNAME: [a-z] VARNAME
         | [A-Z]
         | [0-9];
 
-assignment: VARNAME WS* ASSSIGNMENTOPERATOR WS* VARNAME assignment
+ASSIGNMENT: VARNAME WS* ASSSIGNMENTOPERATOR WS* VARNAME ASSIGNMENT
         | VARNAME WS* ASSSIGNMENTOPERATOR WS* VARNAME 
         | VARNAME WS* ASSSIGNMENTOPERATOR WS* LITERAL;
         
