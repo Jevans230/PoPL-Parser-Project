@@ -66,7 +66,7 @@ FALSE: 'False'; //example commit
 
 WS: ' ';
 
-TAB: '\t';
+TAB: ('\t' | '    ');
 
 
 CONOPERATORS
