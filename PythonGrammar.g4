@@ -2,13 +2,8 @@ grammar PythonGrammar;
 
 start: (expr NEWLINE)* ;
 
-expr: expr ('*' | '/') expr 
-    | expr ('+' | '-') expr
-    | expr ('%') expr
-    | expr ('=' | '+=' | '-=' | '*=' | '/=') expr
-    | ifstatement
-    | LITERAL
-    | SIGNS
+expr:
+    ifstatement
     | '(' expr ')'
     | printRule
     | assignment
@@ -69,9 +64,9 @@ LISTITEM : LITERAL;
 TRUE: 'True';
 FALSE: 'False'; //example commit
 
-WS: [ ];
+WS: ' ';
 
-TAB: [\t];
+TAB: '\t';
 
 
 CONOPERATORS
