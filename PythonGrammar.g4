@@ -69,9 +69,9 @@ LISTITEM : LITERAL;
 TRUE: 'True';
 FALSE: 'False'; //example commit
 
-WS: ' ';
+WS: [ ];
 
-TAB: '\t';
+TAB: [\t];
 
 
 CONOPERATORS
@@ -92,13 +92,13 @@ CONSTATEMENTS
         | VARNAME WS* CONOPERATORS WS* LITERAL;
 
 ifstatement
-    : 'if' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* thenstatement elifstatement* elsestatement?
+    : 'if' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* thenstatement elifstatement*  elsestatement?
     | 'if' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* thenstatement elifstatement* elsestatement?;
 
 
-elifstatement: 'elif' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* thenstatement
-    | 'elif' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* thenstatement;
+elifstatement: '\nelif' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* thenstatement
+    | '\nelif' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* thenstatement;
 
-elsestatement: 'else:' WS* thenstatement;
+elsestatement: '\nelse:' WS* thenstatement;
 
 thenstatement: (NEWLINE+ TAB expr)+;
