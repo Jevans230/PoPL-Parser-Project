@@ -9,6 +9,7 @@ expr:
     | ASSIGNMENT
     ;
 
+
 printRule: 'print(' expr ')';
 
 NEWLINE: [\n]+ ;
@@ -69,7 +70,7 @@ IFELSE
     | 'else'
     ;
     
-LIST : '[' (LISTITEM ',')* (LISTITEM)? ']';
+LIST : '[' WS* LISTITEM WS* (',' WS* LISTITEM WS*)* ']';
 LISTITEM : LITERAL;
 
 TRUE: 'True';
