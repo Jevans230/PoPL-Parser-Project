@@ -33,14 +33,25 @@ VARNAME: [a-z] VARNAME
         | [0-9];
 
 ASSIGNMENT: VARNAME WS* ASSSIGNMENTOPERATOR WS* VARNAME ASSIGNMENT
-        | VARNAME WS* ASSSIGNMENTOPERATOR WS* VARNAME 
-        | VARNAME WS* ASSSIGNMENTOPERATOR WS* LITERAL;
+        | VARNAME WS* ASSSIGNMENTOPERATOR WS* (VARNAME | LITERAL | ARITHMETICSTATEMENT);
         
-ASSSIGNMENTOPERATOR: '='
+ASSSIGNMENTOPERATOR
+    : '='
     | '+='
     | '-='
     | '*='
     | '/=';
+
+ARITHMETICOPERATOR
+    : '+'
+    | '-'
+    | '/'
+    | '*'
+    | '%'
+    | '^';
+
+ARITHMETICSTATEMENT
+    : (VARNAME | LITERAL) WS* ARITHMETICOPERATOR WS* (VARNAME | LITERAL) WS* (ARITHMETICOPERATOR WS* (VARNAME | LITERAL) WS*)*;
 
 SIGNS
     : '+'
@@ -68,6 +79,7 @@ WS: ' ';
 
 TAB: ('\t' | '    ');
 
+NOT: 'not';
 
 CONOPERATORS
     : '>='
@@ -82,9 +94,7 @@ CONOPERATORS
 
 
 CONSTATEMENTS
-        : VARNAME WS* CONOPERATORS WS* VARNAME 
-        | LITERAL WS* CONOPERATORS WS* LITERAL
-        | VARNAME WS* CONOPERATORS WS* LITERAL;
+        : NOT? WS* (VARNAME | LITERAL) WS* CONOPERATORS WS* NOT? WS* (VARNAME | LITERAL);
 
 ifstatement
     : 'if' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* thenstatement elifstatement*  elsestatement?
@@ -96,4 +106,6 @@ elifstatement: '\nelif' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )
 
 elsestatement: '\nelse:' WS* thenstatement;
 
-thenstatement: (NEWLINE+ TAB expr)+;
+thenstatement: (NEWLINE+ TAB printRule)+
+                | (NEWLINE+ TAB '(' expr ')')+
+                | (NEWLINE+ TAB ASSIGNMENT)+;
