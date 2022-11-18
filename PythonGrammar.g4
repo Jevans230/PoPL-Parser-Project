@@ -106,6 +106,4 @@ elifstatement: '\nelif' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )
 
 elsestatement: '\nelse:' WS* thenstatement;
 
-thenstatement: (NEWLINE+ TAB printRule)+
-                | (NEWLINE+ TAB '(' expr ')')+
-                | (NEWLINE+ TAB ASSIGNMENT)+;
+thenstatement: (NEWLINE+ TAB expr)+;
