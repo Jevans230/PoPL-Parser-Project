@@ -93,18 +93,19 @@ CONOPERATORS
     | 'or'
     ;
 
+CONSTATEMENT: NOT? WS* (VARNAME | LITERAL) WS* CONOPERATORS WS* NOT? WS* (VARNAME | LITERAL);
 
 CONSTATEMENTS
-        : NOT? WS* (VARNAME | LITERAL) WS* CONOPERATORS WS* NOT? WS* (VARNAME | LITERAL);
+        : CONSTATEMENT  WS* (('and' | 'or') WS* (CONSTATEMENT | NOT? WS* VARNAME | NOT? WS* LITERAL) WS*)*;
 
 ifstatement
-    : 'if' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* thenstatement elifstatement*  elsestatement?
-    | 'if' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* thenstatement elifstatement* elsestatement?;
+    : 'if' WS* '(' WS* CONSTATEMENTS WS* ')' WS* ':' WS* thenstatement elifstatement*  elsestatement?
+    | 'if' WS* CONSTATEMENTS WS*':' WS* thenstatement elifstatement* elsestatement?;
 
 
-elifstatement: '\nelif' WS* '(' WS* (CONSTATEMENTS WS* (WS+('and' | 'or')WS+)? )+ WS* ')' WS* ':' WS* thenstatement
-    | '\nelif' WS* (WS* CONSTATEMENTS (WS+('and' | 'or')WS+)?)+ WS* ':' WS* thenstatement;
+elifstatement: '\nelif' WS* '(' WS* CONSTATEMENTS WS* ')' WS* ':' WS* thenstatement
+    | '\nelif' WS* CONSTATEMENTS WS* ':' WS* thenstatement;
 
 elsestatement: '\nelse:' WS* thenstatement;
 
-thenstatement: (NEWLINE+ TAB expr)+;
+thenstatement: (NEWLINE TAB expr)+;
