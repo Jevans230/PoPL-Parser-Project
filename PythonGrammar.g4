@@ -116,6 +116,8 @@ elsestatement: '\nelse:' WS* blockstatement;
 
 blockstatement: (NEWLINE TAB expr)+;
 
-whilestatement: 'while' WS* '('?( WS* constatements('and' | 'or') WS* ?)+')'?':';
+whilestatement
+    : 'while' WS* '(' WS* constatements WS* ')' WS* ':' WS* blockstatement
+    | 'while' WS* constatements WS*':' WS* blockstatement;
 
 forloopstatment: 'for' WS* VARNAME WS* 'in' WS* VARNAME WS* ':';

@@ -35,6 +35,15 @@ class PythonGrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PythonGrammarParser#constatements.
+    def enterConstatements(self, ctx:PythonGrammarParser.ConstatementsContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#constatements.
+    def exitConstatements(self, ctx:PythonGrammarParser.ConstatementsContext):
+        pass
+
+
     # Enter a parse tree produced by PythonGrammarParser#ifstatement.
     def enterIfstatement(self, ctx:PythonGrammarParser.IfstatementContext):
         pass
@@ -77,6 +86,15 @@ class PythonGrammarListener(ParseTreeListener):
 
     # Exit a parse tree produced by PythonGrammarParser#whilestatement.
     def exitWhilestatement(self, ctx:PythonGrammarParser.WhilestatementContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#forloopstatment.
+    def enterForloopstatment(self, ctx:PythonGrammarParser.ForloopstatmentContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#forloopstatment.
+    def exitForloopstatment(self, ctx:PythonGrammarParser.ForloopstatmentContext):
         pass
 
 
