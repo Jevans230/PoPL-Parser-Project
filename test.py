@@ -1,4 +1,4 @@
-while 5<6:
-	print("hi")
+while( 5<6 ):
+	print("hi") #comment
 
 	

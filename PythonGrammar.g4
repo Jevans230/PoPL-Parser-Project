@@ -1,14 +1,18 @@
 grammar PythonGrammar;
 
-start: (expr NEWLINE)* ;
+start: (expr WS* COMMENT? NEWLINE)* ;
 
 expr:
-    ifstatement
+    COMMENT
+    | ifstatement
     | '(' expr ')'
     | printRule
     | ASSIGNMENT
     | whilestatement
     ;
+
+COMMENT: '#' ~[\r\t\n]* ;
+// ~ 'except' operator taken from "The Definitive ANTLR4 Reference"
 
 
 printRule: 'print(' expr ')';
