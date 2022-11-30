@@ -62,12 +62,21 @@ class PythonGrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PythonGrammarParser#thenstatement.
-    def enterThenstatement(self, ctx:PythonGrammarParser.ThenstatementContext):
+    # Enter a parse tree produced by PythonGrammarParser#blockstatement.
+    def enterBlockstatement(self, ctx:PythonGrammarParser.BlockstatementContext):
         pass
 
-    # Exit a parse tree produced by PythonGrammarParser#thenstatement.
-    def exitThenstatement(self, ctx:PythonGrammarParser.ThenstatementContext):
+    # Exit a parse tree produced by PythonGrammarParser#blockstatement.
+    def exitBlockstatement(self, ctx:PythonGrammarParser.BlockstatementContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonGrammarParser#whilestatement.
+    def enterWhilestatement(self, ctx:PythonGrammarParser.WhilestatementContext):
+        pass
+
+    # Exit a parse tree produced by PythonGrammarParser#whilestatement.
+    def exitWhilestatement(self, ctx:PythonGrammarParser.WhilestatementContext):
         pass
 
 

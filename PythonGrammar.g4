@@ -7,6 +7,7 @@ expr:
     | '(' expr ')'
     | printRule
     | ASSIGNMENT
+    | whilestatement
     ;
 
 
