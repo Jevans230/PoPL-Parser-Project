@@ -9,7 +9,7 @@ expr:
     | printRule
     | ASSIGNMENT
     | whilestatement
-    | forloopstatment
+    | forloopstatement
     ;
 
 COMMENT: '#' ~[\r\t\n]* ;
@@ -120,4 +120,6 @@ whilestatement
     : 'while' WS* '(' WS* constatements WS* ')' WS* ':' WS* blockstatement
     | 'while' WS* constatements WS*':' WS* blockstatement;
 
-forloopstatment: 'for' WS* VARNAME WS* 'in' WS* VARNAME WS* ':';
+forloopstatement
+    : 'for' WS* VARNAME WS* 'in' WS* VARNAME WS* ':' blockstatement
+    | 'for' WS* '(' WS* VARNAME WS* 'in' WS* VARNAME WS* ')' WS* ':' blockstatement;
