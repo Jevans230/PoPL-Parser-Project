@@ -99,13 +99,13 @@ CONSTATEMENTS
         : CONSTATEMENT  WS* (('and' | 'or') WS* (CONSTATEMENT | NOT? WS* VARNAME | NOT? WS* LITERAL) WS*)*;
 
 ifstatement
-    : 'if' WS* '(' WS* CONSTATEMENTS WS* ')' WS* ':' WS* thenstatement elifstatement*  elsestatement?
-    | 'if' WS* CONSTATEMENTS WS*':' WS* thenstatement elifstatement* elsestatement?;
+    : 'if' WS* '(' WS* CONSTATEMENTS WS* ')' WS* ':' WS* blockstatement elifstatement*  elsestatement?
+    | 'if' WS* CONSTATEMENTS WS*':' WS* blockstatement elifstatement* elsestatement?;
 
 
-elifstatement: '\nelif' WS* '(' WS* CONSTATEMENTS WS* ')' WS* ':' WS* thenstatement
-    | '\nelif' WS* CONSTATEMENTS WS* ':' WS* thenstatement;
+elifstatement: '\nelif' WS* '(' WS* CONSTATEMENTS WS* ')' WS* ':' WS* blockstatement
+    | '\nelif' WS* CONSTATEMENTS WS* ':' WS* blockstatement;
 
-elsestatement: '\nelse:' WS* thenstatement;
+elsestatement: '\nelse:' WS* blockstatement;
 
-thenstatement: (NEWLINE TAB expr)+;
+blockstatement: (NEWLINE TAB expr)+;
