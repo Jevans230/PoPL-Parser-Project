@@ -9,6 +9,7 @@ expr:
     | printRule
     | ASSIGNMENT
     | whilestatement
+    | forloopstatment
     ;
 
 COMMENT: '#' ~[\r\t\n]* ;
@@ -116,3 +117,5 @@ elsestatement: '\nelse:' WS* blockstatement;
 blockstatement: (NEWLINE TAB expr)+;
 
 whilestatement: 'while' WS* '('?( WS* constatements('and' | 'or') WS* ?)+')'?':';
+
+forloopstatment: 'for' WS* VARNAME WS* 'in' WS* VARNAME WS* ':';
