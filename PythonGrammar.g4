@@ -109,3 +109,5 @@ elifstatement: '\nelif' WS* '(' WS* CONSTATEMENTS WS* ')' WS* ':' WS* blockstate
 elsestatement: '\nelse:' WS* blockstatement;
 
 blockstatement: (NEWLINE TAB expr)+;
+
+whilestatement: 'while''('?(CONSTATEMENTS('and' | 'or')?)+')'?':';
