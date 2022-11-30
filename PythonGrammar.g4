@@ -115,4 +115,4 @@ elsestatement: '\nelse:' WS* blockstatement;
 
 blockstatement: (NEWLINE TAB expr)+;
 
-whilestatement: 'while''('?(CONSTATEMENTS('and' | 'or')?)+')'?':';
+whilestatement: 'while' WS* '('?( WS* CONSTATEMENTS('and' | 'or') WS* ?)+')'?':';
