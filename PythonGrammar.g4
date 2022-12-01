@@ -1,13 +1,13 @@
 grammar PythonGrammar;
 
-start: (expr WS* COMMENT? NEWLINE)* ;
+start: (expr COMMENT? NEWLINE)* ;
 
 expr:
     COMMENT
     | ifstatement
     | '(' expr ')'
     | printRule
-    | ASSIGNMENT
+    | assignment
     | whilestatement
     | forloopstatement
     ;
@@ -15,10 +15,12 @@ expr:
 COMMENT: '#' ~[\r\t\n]* ;
 // ~ 'except' operator taken from "The Definitive ANTLR4 Reference"
 
+WS: [ ]+ -> skip;
+
+TAB: ('\t' | '    ');
+NEWLINE: [\n]+ ;
 
 printRule: 'print(' expr ')';
-
-NEWLINE: [\n]+ ;
 
 INT    : [-]?[0-9]+ ; // satisfies all integers
 FLOAT  : [-]?[0-9]+ '.' [0-9]+;
@@ -39,8 +41,8 @@ VARNAME: [a-z] VARNAME
         | [A-Z]
         | [0-9];
 
-ASSIGNMENT: VARNAME WS* ASSSIGNMENTOPERATOR WS* VARNAME ASSIGNMENT
-        | VARNAME WS* ASSSIGNMENTOPERATOR WS* (VARNAME | LITERAL | ARITHMETICSTATEMENT);
+assignment: VARNAME ASSSIGNMENTOPERATOR INT
+        | VARNAME ASSSIGNMENTOPERATOR (VARNAME | LITERAL | ARITHMETICSTATEMENT);
         
 ASSSIGNMENTOPERATOR
     : '='
@@ -58,7 +60,7 @@ ARITHMETICOPERATOR
     | '^';
 
 ARITHMETICSTATEMENT
-    : (VARNAME | LITERAL) WS* ARITHMETICOPERATOR WS* (VARNAME | LITERAL) WS* (ARITHMETICOPERATOR WS* (VARNAME | LITERAL) WS*)*;
+    : (VARNAME | LITERAL) ARITHMETICOPERATOR (VARNAME | LITERAL) (ARITHMETICOPERATOR (VARNAME | LITERAL) )*;
 
 SIGNS
     : '+'
@@ -76,15 +78,11 @@ IFELSE
     | 'else'
     ;
     
-LIST : '[' WS* LISTITEM WS* (',' WS* LISTITEM WS*)* ']';
+LIST : '[' LISTITEM (',' LISTITEM )* ']';
 LISTITEM : LITERAL;
 
 TRUE: 'True';
 FALSE: 'False'; //example commit
-
-WS: ' ';
-
-TAB: ('\t' | '    ');
 
 NOT: 'not';
 
@@ -99,27 +97,27 @@ CONOPERATORS
     | 'or'
     ;
 
-CONSTATEMENT: NOT? WS* (VARNAME | LITERAL) WS* CONOPERATORS WS* NOT? WS* (VARNAME | LITERAL);
+CONSTATEMENT: NOT? (VARNAME | LITERAL) CONOPERATORS NOT? (VARNAME | LITERAL);
 
 constatements
-        : CONSTATEMENT  WS* (('and' | 'or') WS* (CONSTATEMENT | NOT? WS* VARNAME | NOT? WS* LITERAL) WS*)*;
+        : CONSTATEMENT  (('and' | 'or') (CONSTATEMENT | NOT? VARNAME | NOT? LITERAL) )*;
 
 ifstatement
-    : 'if' WS* '(' WS* constatements WS* ')' WS* ':' WS* blockstatement elifstatement*  elsestatement?
-    | 'if' WS* constatements WS*':' WS* blockstatement elifstatement* elsestatement?;
+    : 'if' '(' constatements ')' ':' blockstatement elifstatement*  elsestatement?
+    | 'if' constatements ':' blockstatement elifstatement* elsestatement?;
 
 
-elifstatement: '\nelif' WS* '(' WS* constatements WS* ')' WS* ':' WS* blockstatement
-    | '\nelif' WS* constatements WS* ':' WS* blockstatement;
+elifstatement: '\nelif' '(' constatements ')' ':' blockstatement
+    | '\nelif' constatements ':' blockstatement;
 
-elsestatement: '\nelse:' WS* blockstatement;
+elsestatement: '\nelse:' blockstatement;
 
 blockstatement: (NEWLINE TAB expr)+;
 
 whilestatement
-    : 'while' WS* '(' WS* constatements WS* ')' WS* ':' WS* blockstatement
-    | 'while' WS* constatements WS*':' WS* blockstatement;
+    : 'while' '(' constatements ')' ':' blockstatement
+    | 'while' constatements ':' blockstatement;
 
 forloopstatement
-    : 'for' WS* VARNAME WS* 'in' WS* VARNAME WS* ':' blockstatement
-    | 'for' WS* '(' WS* VARNAME WS* 'in' WS* VARNAME WS* ')' WS* ':' blockstatement;
+    : 'for' VARNAME 'in' VARNAME ':' blockstatement
+    | 'for' '(' VARNAME 'in' VARNAME ')' ':' blockstatement;
