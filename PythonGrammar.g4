@@ -10,39 +10,30 @@ expr:
     | assignment
     | whilestatement
     | forloopstatement
+    | functionDeclaration
+    | functionCall
     ;
 
 COMMENT: '#' ~[\r\t\n]* ;
-// ~ 'except' operator taken from "The Definitive ANTLR4 Reference"
+
+TAB: '\t' | '    ';
+NEWLINE: [\n]+ ;
 
 WS: [ ]+ -> skip;
-
-TAB: ('\t' | '    ');
-NEWLINE: [\n]+ ;
 
 printRule: 'print(' expr ')';
 
 INT    : [-]?[0-9]+ ; // satisfies all integers
 FLOAT  : [-]?[0-9]+ '.' [0-9]+;
 STRING : '"' ([a-z] | [A-Z] | [0-9] | '_')+ '"';
-DOUBLE : [-]?[0-9]+ '.' [0-9]+;
 BOOL   : TRUE | FALSE;
 LITERAL: INT
         | FLOAT
         | STRING
-        | DOUBLE
         | BOOL
         | LIST;
 
-VARNAME: [a-z] VARNAME
-        | [A-Z] VARNAME
-        | [0-9] VARNAME
-        | [a-z]
-        | [A-Z]
-        | [0-9];
-
-assignment: VARNAME ASSIGNMENTOPERATOR (VARNAME | LITERAL | ARITHMETICSTATEMENT 
-    | (INT | FLOAT | STRING | BOOL | LIST));
+VARNAME: ([A-Z] | [a-z] | [0-9] | '_')+;
         
 ASSIGNMENTOPERATOR
     : '='
@@ -99,6 +90,14 @@ CONOPERATORS
 
 CONSTATEMENT: NOT? (VARNAME | LITERAL) CONOPERATORS NOT? (VARNAME | LITERAL);
 
+arguments
+    : VARNAME (',' VARNAME)*
+    | '*' VARNAME
+    ;
+
+assignment: VARNAME ASSIGNMENTOPERATOR (VARNAME | LITERAL | ARITHMETICSTATEMENT 
+    | (INT | FLOAT | STRING | BOOL | LIST));
+
 constatements
         : CONSTATEMENT  (('and' | 'or') (CONSTATEMENT | NOT? VARNAME | NOT? LITERAL) )*;
 
@@ -121,3 +120,12 @@ whilestatement
 forloopstatement
     : 'for' VARNAME 'in' VARNAME ':' blockstatement
     | 'for' '(' VARNAME 'in' VARNAME ')' ':' blockstatement;
+
+functionDeclaration
+    : 'def' VARNAME '(' arguments? ')' ':' blockstatement
+    ;
+
+functionCall
+    : VARNAME '(' arguments? ')'
+    | VARNAME '(' (VARNAME '=' LITERAL) (',' VARNAME '=' LITERAL)* ')'
+    ;

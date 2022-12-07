@@ -1,3 +1,5 @@
-while  5 < 6:
-print("hi")
-	
+for x in list:
+    cat += x  # comment
+def funky(what, the, funky):
+    do += the
+funky(yes, we, do)
