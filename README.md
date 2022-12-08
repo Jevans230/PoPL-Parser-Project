@@ -14,14 +14,14 @@ For the environment we used
 You can run the application by using: 
     java -jar antlr-4.9.3-complete.jar -Dlanguage=Python3 PythonGrammar.g4
 
+then to run your test file:
+    python3 antlr_project.py test.py
+
 ## Bonus
 We ran these commands to get the parser tree inspector 
 - antlr4 PythonGrammar.g4
 - java org.antlr.v4.Tool PythonGrammar.g4
 - javac PythonGrammar*.java
 - grun PythonGrammar expr test.py -gui
-
-then to run your test file:
-    python3 antlr_project.py test.py
 
 ## Demo Video
