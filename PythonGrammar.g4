@@ -1,7 +1,5 @@
 grammar PythonGrammar;
 
-tokens { INDENT, DEDENT }
-
 start: (expr COMMENT? NEWLINE)* ;
 
 expr:
