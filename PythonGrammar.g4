@@ -1,8 +1,6 @@
 grammar PythonGrammar;
 
-start: exprs;
-
-exprs: (expr COMMENT? NEWLINE)* ;
+start: (expr COMMENT? NEWLINE)* ;
 
 expr:
     COMMENT
