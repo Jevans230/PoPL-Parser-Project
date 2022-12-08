@@ -1,5 +1,7 @@
 grammar PythonGrammar;
 
+tokens { INDENT, DEDENT }
+
 start: (expr COMMENT? NEWLINE)* ;
 
 expr:
@@ -19,11 +21,11 @@ COMMENT: '#' ~[\r\t\n]* ;
 TAB: '\t' | '    ';
 NEWLINE: [\n]+ ;
 
-WS: [ ]+ -> skip;
+WS: [\t ]+ -> skip;
 
 printRule: 'print(' expr ')';
 
-INT    : [-]?[0-9]+ ; // satisfies all integers
+INT    : [-]?[0-9]+ ;
 FLOAT  : [-]?[0-9]+ '.' [0-9]+;
 STRING : '"' ([a-z] | [A-Z] | [0-9] | '_')+ '"';
 BOOL   : TRUE | FALSE;
@@ -73,7 +75,7 @@ LIST : '[' LISTITEM (',' LISTITEM )* ']';
 LISTITEM : LITERAL;
 
 TRUE: 'True';
-FALSE: 'False'; //example commit
+FALSE: 'False';
 
 NOT: 'not';
 
@@ -111,7 +113,7 @@ elifstatement: '\nelif' '(' constatements ')' ':' blockstatement
 
 elsestatement: '\nelse:' blockstatement;
 
-blockstatement: (NEWLINE TAB expr)+;
+blockstatement: (NEWLINE TAB? expr)+;
 
 whilestatement
     : 'while' '(' constatements ')' ':' blockstatement
