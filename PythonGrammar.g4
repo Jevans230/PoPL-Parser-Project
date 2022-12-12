@@ -107,10 +107,10 @@ ifstatement
     | 'if' constatements ':' blockstatement elifstatement* elsestatement?;
 
 
-elifstatement: 'elif' '(' constatements ')' ':' blockstatement
-    | 'elif' constatements ':' blockstatement;
+elifstatement: '\nelif' '(' constatements ')' ':' blockstatement
+    | '\nelif' constatements ':' blockstatement;
 
-elsestatement: 'else:' blockstatement;
+elsestatement: '\nelse:' blockstatement;
 
 blockstatement: (NEWLINE TAB? expr)+;
 
