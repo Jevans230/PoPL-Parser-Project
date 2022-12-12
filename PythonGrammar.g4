@@ -6,6 +6,7 @@ expr:
     COMMENT
     | ifstatement
     | '(' expr ')'
+    | NEWLINE expr
     | printRule
     | assignment
     | whilestatement
@@ -106,10 +107,10 @@ ifstatement
     | 'if' constatements ':' blockstatement elifstatement* elsestatement?;
 
 
-elifstatement: '\nelif' '(' constatements ')' ':' blockstatement
-    | '\nelif' constatements ':' blockstatement;
+elifstatement: 'elif' '(' constatements ')' ':' blockstatement
+    | 'elif' constatements ':' blockstatement;
 
-elsestatement: '\nelse:' blockstatement;
+elsestatement: 'else:' blockstatement;
 
 blockstatement: (NEWLINE TAB? expr)+;
 
