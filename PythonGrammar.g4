@@ -43,7 +43,7 @@ ASSIGNMENTOPERATOR
     | '*='
     | '/=';
 
-ARITHMETICOPERATOR
+arithmeticoperator
     : '+'
     | '-'
     | '/'
@@ -51,8 +51,8 @@ ARITHMETICOPERATOR
     | '%'
     | '^';
 
-ARITHMETICSTATEMENT
-    : (VARNAME | LITERAL) ARITHMETICOPERATOR (VARNAME | LITERAL) (ARITHMETICOPERATOR (VARNAME | LITERAL) )*;
+arithmeticstatement
+    : (VARNAME | LITERAL) arithmeticoperator (VARNAME | LITERAL) (arithmeticoperator (VARNAME | LITERAL) )*;
 
 SIGNS
     : '+'
@@ -103,7 +103,7 @@ arguments
     | '*' VARNAME
     ;
 
-assignment: VARNAME ASSIGNMENTOPERATOR (VARNAME | varitem | ARITHMETICSTATEMENT) ;
+assignment: VARNAME arithmeticoperator (VARNAME | varitem | arithmeticoperator) ;
 
 constatements
         : constatement (('and' | 'or') (constatement | NOT? VARNAME | NOT? LITERAL) )*;
