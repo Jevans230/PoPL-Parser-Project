@@ -1,12 +1,12 @@
 grammar PythonGrammar;
 
-start: (expr COMMENT? NEWLINE)* ;
+start: (expr Comment? Newline)* ;
 
 expr:
-    COMMENT
+    Comment
     | ifstatement
     | '(' expr ')'
-    | NEWLINE expr
+    | Newline expr
     | printRule
     | assignment
     | whilestatement
@@ -15,35 +15,35 @@ expr:
     | functionCall
     ;
 
-COMMENT: '#' ~[\r\t\n]* ;
+Comment: '#' ~[\r\t\n]* ;
 
-TAB: '\t' | '    ';
-NEWLINE: [\n]+ ;
+Tab: '\t' | '    ';
+Newline: [\n]+ ;
 
 WS: [\t ]+ -> skip;
 
 printRule: 'print(' (expr | varitem) ')';
 
-INT    : [-]?[0-9]+ ;
-FLOAT  : [-]?[0-9]+ '.' [0-9]+;
-STRING : '"' ([a-z] | [A-Z] | [0-9] | '_')+ '"';
-BOOL   : TRUE | FALSE;
-LITERAL: INT
-        | FLOAT
-        | STRING
-        | BOOL
-        | LIST;
+Int    : [-]?[0-9]+ ;
+Float  : [-]?[0-9]+ '.' [0-9]+;
+String : '"' ([a-z] | [A-Z] | [0-9] | '_')+ '"';
+Bool   : TRUE | FALSE;
+Literal: Int
+        | Float
+        | String
+        | Bool
+        | List;
 
-VARNAME: ([A-Z] | [a-z] | [0-9] | '_')+;
+Varname: ([A-Z] | [a-z] | [0-9] | '_')+;
         
-ASSIGNMENTOPERATOR
+Assignmentoperator
     : '='
     | '+='
     | '-='
     | '*='
     | '/=';
 
-arithmeticoperator
+Arithmeticoperator
     : '+'
     | '-'
     | '/'
@@ -52,9 +52,9 @@ arithmeticoperator
     | '^';
 
 arithmeticstatement
-    : (VARNAME | LITERAL) arithmeticoperator (VARNAME | LITERAL) (arithmeticoperator (VARNAME | LITERAL) )*;
+    : (Varname | Literal) Arithmeticoperator (Varname | Literal) (Arithmeticoperator (Varname | Literal) )*;
 
-SIGNS
+Signs
     : '+'
     | '-'
     | '/'
@@ -64,21 +64,21 @@ SIGNS
     | '!'
     ;
 
-IFELSE
+Ifelse
     : 'if'
     | 'elif'
     | 'else'
     ;
     
-LIST : '[' LISTITEM (',' LISTITEM )* ']';
-LISTITEM : LITERAL;
+List : '[' Listitem (',' Listitem )* ']';
+Listitem : Literal;
 
 TRUE: 'True';
 FALSE: 'False';
 
-NOT: 'not';
+Not: 'not';
 
-CONOPERATORS
+Conoperators
     : '>='
     | '<='
     | '>'
@@ -90,23 +90,23 @@ CONOPERATORS
     ;
 
 varitem
-    : INT
-    | FLOAT
-    | STRING
-    | BOOL
-    | LIST;
+    : Int
+    | Float
+    | String
+    | Bool
+    | List;
 
-constatement: NOT? (VARNAME | varitem) CONOPERATORS NOT? (VARNAME | varitem);
+constatement: Not? (Varname | varitem) Conoperators Not? (Varname | varitem);
 
 arguments
-    : VARNAME (',' VARNAME)*
-    | '*' VARNAME
+    : Varname (',' Varname)*
+    | '*' Varname
     ;
 
-assignment: VARNAME arithmeticoperator (VARNAME | varitem | arithmeticoperator) ;
+assignment: Varname Assignmentoperator (Varname | varitem | Arithmeticoperator) ;
 
 constatements
-        : constatement (('and' | 'or') (constatement | NOT? VARNAME | NOT? LITERAL) )*;
+        : constatement (('and' | 'or') (constatement | Not? Varname | Not? Literal) )*;
 
 ifstatement
     : 'if' '(' constatements ')' ':' blockstatement elifstatement*  elsestatement?
@@ -118,21 +118,21 @@ elifstatement: '\nelif' '(' constatements ')' ':' blockstatement
 
 elsestatement: '\nelse:' blockstatement;
 
-blockstatement: (NEWLINE TAB? expr)+;
+blockstatement: (Newline Tab? expr)+;
 
 whilestatement
     : 'while' '(' constatements ')' ':' blockstatement
     | 'while' constatements ':' blockstatement;
 
 forloopstatement
-    : 'for' VARNAME 'in' VARNAME ':' blockstatement
-    | 'for' '(' VARNAME 'in' VARNAME ')' ':' blockstatement;
+    : 'for' Varname 'in' Varname ':' blockstatement
+    | 'for' '(' Varname 'in' Varname ')' ':' blockstatement;
 
 functionDeclaration
-    : 'def' VARNAME '(' arguments? ')' ':' blockstatement
+    : 'def' Varname '(' arguments? ')' ':' blockstatement
     ;
 
 functionCall
-    : VARNAME '(' arguments? ')'
-    | VARNAME '(' (VARNAME '=' varitem) (',' VARNAME '=' varitem)* ')'
+    : Varname '(' arguments? ')'
+    | Varname '(' (Varname '=' varitem) (',' Varname '=' varitem)* ')'
     ;
