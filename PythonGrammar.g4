@@ -106,7 +106,7 @@ arguments
 assignment: VARNAME ASSIGNMENTOPERATOR (VARNAME | varitem | ARITHMETICSTATEMENT) ;
 
 constatements
-        : constatement  ;//(('and' | 'or') (CONSTATEMENT | NOT? VARNAME | NOT? LITERAL) )*;
+        : constatement (('and' | 'or') (constatement | NOT? VARNAME | NOT? LITERAL) )*;
 
 ifstatement
     : 'if' '(' constatements ')' ':' blockstatement elifstatement*  elsestatement?
