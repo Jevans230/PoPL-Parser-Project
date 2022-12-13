@@ -102,7 +102,7 @@ arguments
 arithmeticstatement
     : (VARNAME | varitem) ARITHMETICOPERATOR (VARNAME | varitem) (ARITHMETICOPERATOR (VARNAME | varitem) )*;
 
-assignment: VARNAME ASSIGNMENTOPERATOR (arithmeticstatement | VARNAME | varitem) ;
+assignment: VARNAME (ASSIGNMENTOPERATOR | '=') (arithmeticstatement | VARNAME | varitem) ;
 
 constatements
         : constatement (('and' | 'or') (constatement | NOT? VARNAME | NOT? LITERAL) )*;
