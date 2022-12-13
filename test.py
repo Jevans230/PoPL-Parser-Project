@@ -1,5 +1,5 @@
 
-if (v == 200):
+if v == 200:
     caat += 1
 elif v == 150:
     cat += 2

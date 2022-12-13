@@ -22,7 +22,7 @@ NEWLINE: [\n]+ ;
 
 WS: [\t ]+ -> skip;
 
-printRule: 'print(' expr ')';
+printRule: 'print(' (expr | varitem) ')';
 
 INT    : [-]?[0-9]+ ;
 FLOAT  : [-]?[0-9]+ '.' [0-9]+;
@@ -89,18 +89,24 @@ CONOPERATORS
     | 'or'
     ;
 
-CONSTATEMENT: NOT? (VARNAME | LITERAL) CONOPERATORS NOT? (VARNAME | LITERAL);
+varitem
+    : INT
+    | FLOAT
+    | STRING
+    | BOOL
+    | LIST;
+
+constatement: NOT? (VARNAME | varitem) CONOPERATORS NOT? (VARNAME | varitem);
 
 arguments
     : VARNAME (',' VARNAME)*
     | '*' VARNAME
     ;
 
-assignment: VARNAME ASSIGNMENTOPERATOR (VARNAME | LITERAL | ARITHMETICSTATEMENT 
-    | (INT | FLOAT | STRING | BOOL | LIST));
+assignment: VARNAME ASSIGNMENTOPERATOR (VARNAME | varitem | ARITHMETICSTATEMENT) ;
 
 constatements
-        : CONSTATEMENT  (('and' | 'or') (CONSTATEMENT | NOT? VARNAME | NOT? LITERAL) )*;
+        : constatement  ;//(('and' | 'or') (CONSTATEMENT | NOT? VARNAME | NOT? LITERAL) )*;
 
 ifstatement
     : 'if' '(' constatements ')' ':' blockstatement elifstatement*  elsestatement?
@@ -128,5 +134,5 @@ functionDeclaration
 
 functionCall
     : VARNAME '(' arguments? ')'
-    | VARNAME '(' (VARNAME '=' LITERAL) (',' VARNAME '=' LITERAL)* ')'
+    | VARNAME '(' (VARNAME '=' varitem) (',' VARNAME '=' varitem)* ')'
     ;
