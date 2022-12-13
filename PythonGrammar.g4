@@ -13,6 +13,7 @@ expr:
     | forloopstatement
     | functionDeclaration
     | functionCall
+    | ARITHMETICSTATEMENT
     ;
 
 COMMENT: '#' ~[\r\t\n]* ;
