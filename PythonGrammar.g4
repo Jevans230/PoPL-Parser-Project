@@ -117,15 +117,15 @@ elifstatement: '\nelif' '(' constatements ')' ':' blockstatement
 
 elsestatement: '\nelse:' blockstatement;
 
-blockstatement: (NEWLINE TAB? expr)+;
+blockstatement: (NEWLINE TAB? (expr | 'break' | 'continue'))+;
 
 whilestatement
     : 'while' '(' constatements ')' ':' blockstatement
     | 'while' constatements ':' blockstatement;
 
 forloopstatement
-    : 'for' VARNAME 'in' VARNAME ':' blockstatement
-    | 'for' '(' VARNAME 'in' VARNAME ')' ':' blockstatement;
+    : 'for' VARNAME 'in' (VARNAME | STRING) ':' blockstatement
+    | 'for' '(' VARNAME 'in' (VARNAME | STRING) ')' ':' blockstatement;
 
 functionDeclaration
     : 'def' VARNAME '(' arguments? ')' ':' blockstatement
