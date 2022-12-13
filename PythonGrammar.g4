@@ -13,7 +13,6 @@ expr:
     | forloopstatement
     | functionDeclaration
     | functionCall
-    | ARITHMETICSTATEMENT
     ;
 
 COMMENT: '#' ~[\r\t\n]* ;
@@ -51,9 +50,6 @@ ARITHMETICOPERATOR
     | '*'
     | '%'
     | '^';
-
-ARITHMETICSTATEMENT
-    : (VARNAME | LITERAL) ARITHMETICOPERATOR (VARNAME | LITERAL) (ARITHMETICOPERATOR (VARNAME | LITERAL) )*;
 
 SIGNS
     : '+'
@@ -103,8 +99,10 @@ arguments
     : VARNAME (',' VARNAME)*
     | '*' VARNAME
     ;
+arithmeticstatement
+    : (VARNAME | varitem) ARITHMETICOPERATOR (VARNAME | varitem) (ARITHMETICOPERATOR (VARNAME | varitem) )*;
 
-assignment: VARNAME ASSIGNMENTOPERATOR (VARNAME | varitem | ARITHMETICSTATEMENT) ;
+assignment: VARNAME ASSIGNMENTOPERATOR (arithmeticstatement | VARNAME | varitem) ;
 
 constatements
         : constatement (('and' | 'or') (constatement | NOT? VARNAME | NOT? LITERAL) )*;
